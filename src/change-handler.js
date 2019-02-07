@@ -43,14 +43,14 @@ class ChangeHandler {
     giveChange() {
         // TODO return the correct change in the following format...
 
-        let changeSum = this.cashTendered - this.amountDue;
+    let changeSum = this.cashTendered - this.amountDue;
 
-let current = [25, 10, 5, 1];
-let amount = [0,0,0,0];
+    let current = [25, 10, 5, 1];
+    let amount = [0,0,0,0];
 
-for (let i = 0; i < current.length; i++){
-    for (let j = 0; (changeSum - current[i]) >= 0; j++){
-            amount[i] = j+1;                                   // add +1 because the array starts/goes back to 0 always need to 
+    for (let i = 0; i < current.length; i++){
+        for (let j = 0; (changeSum - current[i]) >= 0; j++){
+                amount[i] = j+1;                                   // add +1 because the array starts/goes back to 0 always need to 
     }
 }
         return {
@@ -64,6 +64,8 @@ for (let i = 0; i < current.length; i++){
 
 let vendingMachine = new ChangeHandler(100);
     
+
+
 
 // var pop = new ChangeHandler ({
 //     amountDue: 0,
