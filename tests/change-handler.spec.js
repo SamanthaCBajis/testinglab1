@@ -5,7 +5,7 @@ describe("tests for ChangeHandler", function() {
         expect(ChangeHandler).toBeDefined();
     });
     it("initialize ChangeHandler", function() {
-        var vendingMachine = new ChangeHandler({
+        let vendingMachine = new ChangeHandler({
             amountDue: amountDue,
             cashTendered: 0
         });
@@ -20,22 +20,22 @@ describe("tests for insertCoin", function() {
     expect(vendingMachine.insertCoin).toBeDefined();
     });
 
-    it("inserting a quarter adds 25 to cashtendered", function() {
+    it("inserting a quarter adds 25", function() {
     let vendingMachine = new ChangeHandler(100)
     vendingMachine.insertCoin("quarter")
     expect(vendingMachine.cashTendered).toBe(25);
     });
-    it("inserting a dime adds 10 to cashtendered", function() {
+    it("inserting a dime adds 10", function() {
     let vendingMachine = new ChangeHandler(100)
     vendingMachine.insertCoin("dime")
     expect(vendingMachine.cashTendered).toBe(10);
     });
-    it("inserting a nickel adds 5 to cashtendered", function() {
+    it("inserting a nickel adds 5", function() {
     let vendingMachine = new ChangeHandler(100)
     vendingMachine.insertCoin("nickel")
     expect(vendingMachine.cashTendered).toBe(5);
     });
-    it("inserting a penny adds 1 to cashtendered", function() {
+    it("inserting a penny adds 1", function() {
     let vendingMachine = new ChangeHandler(100)
     vendingMachine.insertCoin("penny")
     expect(vendingMachine.cashTendered).toBe(1);
@@ -49,8 +49,11 @@ describe("tests for isPaymentSufficient", function() {
     });
     it("test Payment Sufficient", function() {
         let vendingMachine = new ChangeHandler(100)
-        expect(vendingMachine.cashTendered).toBeGreaterThanOrEqual(amountDue).toBe(true);
-        expect(vendingMachine.cashTendered).toBeLessThan(amountDue).toBe(false);
+        vendingMachine.isPaymentSufficient(cashtendered).toBeGreaterThanOrEqual(amountDue)
+        expect(vendingMachine.cashTendered).toBe(true);
+        vendingMachine.isPaymentSufficient(cashtendered).toBeLessThanOrEqual(amountDue)
+        expect(vendingMachine.cashTendered).toBe(false);
+
     });
     });
 
